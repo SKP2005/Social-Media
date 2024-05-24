@@ -12,7 +12,8 @@ export const register=(req,res)=>{
     //CREATE A NEW USER
     //hash the password
     const salt=bcrypt.genSalt(10);
-    const hashedPassword=bcrypt.hashSync(req.body.password,salt)
+    const hashedPassword=req.body.password;
+    //                  =bcrypt.hashSync(req.body.password,salt)
 
     const q="INSERT INTO users(`username`,`email`,`password`,`name`) VALUE (?)"
 
